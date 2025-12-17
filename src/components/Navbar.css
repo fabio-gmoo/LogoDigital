@@ -1,0 +1,85 @@
+/* Navbar Fija arriba */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  z-index: 1000; /* Siempre encima de todo */
+  transition: all 0.4s ease-in-out; /* Animación suave */
+  box-sizing: border-box;
+}
+
+/* Estado cuando haces Scroll (Efecto Glassmorphism) */
+.navbar.scrolled {
+  background: rgba(0, 0, 0, 0.5); /* Negro semitransparente */
+  backdrop-filter: blur(15px);     /* El efecto borroso de Apple */
+  -webkit-backdrop-filter: blur(15px); /* Para Safari */
+  height: 60px; /* Se hace un poco más pequeña */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* El Logo al centro */
+.logo-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #fff;
+  background: linear-gradient(90deg, var(--gold-primary), var(--gold-secondary)); 
+  
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Enlaces */
+.nav-links {
+  flex: 1;
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links.left {
+  justify-content: flex-start;
+}
+
+.nav-links.right {
+  justify-content: flex-end;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #ccc;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+/* Efecto Hover en los enlaces (pequeña línea abajo) */
+.nav-links a:hover {
+  color: var(--gold-primary);
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: -5px;
+  left: 0;
+  background-color: #fff;
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
